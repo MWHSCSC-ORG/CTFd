@@ -213,7 +213,9 @@ def chal(chalid):
                         logger.info("[{0}] {1} submitted {2} with kpm {3} [CORRECT]".format(*data))
                         # return "1" # key was correct
                         return jsonify({'status': '1', 'message': 'Correct'})
-
+                elif x['type'] == 2: #hashed
+                    # Check key here
+                    return jsonify({'status':'1', 'message':'Correct'})
             if ctftime():
                 wrong = WrongKeys(session['id'], chalid, request.form['key'])
                 db.session.add(wrong)
